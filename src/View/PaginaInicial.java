@@ -21,11 +21,6 @@ import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.view.JasperViewer;
-
 
 
 /**
@@ -1233,19 +1228,10 @@ public class PaginaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jbNovaVendaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         String str= "Factura.jasper";
-         JasperPrint jp=null;
+        
          
-       try {
-           jp= JasperFillManager.fillReport(str, null, con);
-           
-       } catch (JRException ex) {
-           Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
-           
-           JasperViewer view= new JasperViewer(jp, false);
-           view.setVisible(true);
-       }
-                 
+       
+         
          
          
          

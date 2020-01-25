@@ -24,14 +24,14 @@ import javax.swing.JOptionPane;
 public class FornecedorDAO implements DaoInterface<Fornecedor,Integer> {
     
     private Connection con;
-    private Connection con1;
+  
     
      BDconexao conex=new BDconexao();
-     BDconexao1 conex1=new BDconexao1();
+     
     
     public FornecedorDAO(){
         con=BDconexao.getconnection();
-        con1=BDconexao1.getconnection();
+        
        
        
       }

@@ -6,16 +6,13 @@
 package View;
 
 import Model.Dao.BDconexao;
-import Model.Dao.BDconexao1;
+
 import Model.Dao.FornecedorDAO;
-import Model.Dao.ProdutoDAO;
 import Model.Entidade.Fornecedor;
 import Model.Entidade.Tabela;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
@@ -27,7 +24,7 @@ public class FormFornecedor extends javax.swing.JFrame {
    FornecedorDAO fdao=new FornecedorDAO();
    Fornecedor fmode=new Fornecedor();
    BDconexao conex=new BDconexao();
-   BDconexao1 conex1=new BDconexao1();
+   //BDconexao1 conex1=new BDconexao1();
    Connection con;
    Connection con1;
    
@@ -37,7 +34,8 @@ public class FormFornecedor extends javax.swing.JFrame {
      */
     public FormFornecedor() {
         initComponents();
-        PreencherTabela("Select *from Fornecedor order by Nome");
+      
+        //PreencherTabela("Select *from Fornecedor order by Nome");
     }
 
     /**
@@ -370,7 +368,7 @@ public class FormFornecedor extends javax.swing.JFrame {
     private void jTableForncedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableForncedorMouseClicked
        String nome=""+jTableForncedor.getValueAt(jTableForncedor.getSelectedRow(),1);
        con=BDconexao.getconnection();
-        con1=BDconexao1.getconnection();
+       
        conex.executaSql("Select *from Fornecedor where Nome='"+nome+"'");
        try {
            conex.rs.first();
