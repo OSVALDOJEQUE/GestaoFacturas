@@ -10,7 +10,6 @@
     <class>Model.Entidade.Fornecedor</class>
     <class>Model.Entidade.tipo</class>
     <class>Controle.ContrLogin</class>
-    <class>Controle.ContrPaginaInicial</class>
     <class>Model.Entidade.Vd</class>
     <class>Model.Entidade.Artigo</class>
     <class>Model.Entidade.Classe</class>
@@ -25,6 +24,7 @@
     <class>Model.Entidade.Contactof</class>
     <class>Model.Entidade.Subconta</class>
     <class>Model.Entidade.Usuario</class>
+    <class>Controle.ControlPaginaInicial</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestao?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

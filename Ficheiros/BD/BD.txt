@@ -1,0 +1,78 @@
+create database gestao;
+
+create table Empresa
+( Nome varchar(20) not null,
+ Cidade varchar(15),
+ Nuit integer(11) not null,
+ Telefone integer(12) not null,
+ Email varchar(20);
+ 
+ alter table Empresa add unique key (Nuit);
+ 
+ create table Produto 
+ (CodProduto integer not null,
+ Descr varchar(20) not null,
+ Quantidade integer,
+ CodFornecedor integer not null ,
+ PrecoUnit decimal(11,2), 
+ Tipo varchar(20) not null,
+ primary key (CodProduto)
+ 
+);
+ 
+ 
+ Create table Fornecedor 
+ ( CodFornecedor integer not null,
+   Nome varchar(20) not null,
+   Endereco varchar(30) not null,
+   Telefone integer(12) not null,
+   primary key (CodFornecedor));
+   drop table fornrcedor;
+   
+     alter table fornecedor
+     modify codFornecedor integer not null auto_increment;
+    alter table Produto 
+    modify CodProduto integer not null auto_increment;
+     
+     create table Venda
+   (CodVenda integer not null auto_increment,
+    Quantidadte integer not null,
+	PrecoTotal decimal default 0.00,
+     primary key (CodVenda));
+     
+     create table Venda_produto
+   (CodVenda integer not null,
+    Codproduto integer not null,
+    DataEmissao datetime not null,
+    DataValidade datetime not null,
+    Quantidadte integer not null,
+     desconto decimal not null,
+     primary key (CodProduto));
+     
+     create table Fornecedor_produto
+     ( CodFornecedor integer not null,
+       CodProduto integer not null,
+       primary key (CodProduto));
+       
+Create table TipoProduto
+(CodTipoProduto integer not null auto_increment,
+ DescrTipoProduto varchar(20) not null,
+ primary key(CodTipoProduto));
+
+     alter table produto 
+     add
+     foreign key(CodFornecedor) references
+     Fornecedor(CodFornecedor) on delete  no action
+     on update no action;
+     
+     drop table fornecedor_produto;
+     
+     
+     alter table Venda_Produto
+     add constraint venda
+     foreign key (CodVenda) references Venda(CodVenda) on delete no action
+     on update no action,
+     add constraint Produto
+     foreign key (CodProduto) references Produto(CodProduto) on delete no action
+     on update no action;
+	

@@ -54,6 +54,8 @@ public class Endereco implements Serializable {
     private Collection<Cliente> clienteCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codEndereco")
     private Collection<Fornecedor> fornecedorCollection;
+    
+    private String pesquisa;
 
     public Endereco() {
     }
@@ -108,6 +110,16 @@ public class Endereco implements Serializable {
         this.rua = rua;
     }
 
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+
+    
+    
     @XmlTransient
     public Collection<Cliente> getClienteCollection() {
         return clienteCollection;

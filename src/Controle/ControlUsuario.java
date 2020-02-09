@@ -21,7 +21,7 @@ import javax.swing.JTextField;
  *
  * @author JEQUE
  */
-public class ContrUsuario {
+public class ControlUsuario {
     
     private Connection con;
     private BDconexao conex=new BDconexao();
@@ -29,7 +29,7 @@ public class ContrUsuario {
     private final PaginaLogin login;
     
     
-    public ContrUsuario(PaginaLogin login){
+    public ControlUsuario(PaginaLogin login){
       
         usuario=new Usuario();
         this.login=login;

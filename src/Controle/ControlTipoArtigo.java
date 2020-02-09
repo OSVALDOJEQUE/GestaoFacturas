@@ -9,6 +9,6 @@ package Controle;
  *
  * @author JEQUE
  */
-public class ContrCateforia {
+public class ControlTipoArtigo {
     
 }

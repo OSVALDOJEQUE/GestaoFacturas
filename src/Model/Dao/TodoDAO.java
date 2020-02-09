@@ -6,6 +6,8 @@
 package Model.Dao;
 
 import Model.Entidade.Contactoc;
+import Model.Entidade.Contactof;
+import Model.Entidade.Endereco;
 import Model.Entidade.Tipoartigo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +32,7 @@ public class TodoDAO {
     
    // DAO Contactos
     
-    public Contactoc inserir(Contactoc cc) {
+    public Contactoc inserirC(Contactoc cc) {
       String sql="insert into contactoc(email,TelFixo,TelCelular,CodCliente) values (?,?,?,?)";
       PreparedStatement stmt=null;
       try{
@@ -47,33 +49,37 @@ public class TodoDAO {
       }
       return cc;
     }
-
-    @Override
-    public void update(Tipoartigo ta) {
     
-    String sql="Update tipoartigo set DescrTipoProduto=? where CodTipoArtigo=?";
+    
+    public void updateC(Contactoc cc) {
+    
+    String sql="Update contactoc set email=? TelFixo=? telCelulat=? CodCliente where codContactoc=?";
       PreparedStatement stmt=null;
       try{
       stmt=con.prepareStatement(sql);
-      stmt.setString(1,ta.getDescricao());
-      stmt.setInt(2,ta.getCodTipoArtigo());
+      stmt.setString(1,cc.getEmail());
+      stmt.setInt(2,cc.getTelFixo());
+      stmt.setInt(3, cc.getTelCelular());
+      stmt.setInt(4, cc.getCodCliente());
+      stmt.setInt(5, cc.getCodContacto());
       
       stmt.executeUpdate();
       stmt.close();
-     JOptionPane.showMessageDialog(null," Categoria Gravado com sucesso");
+     JOptionPane.showMessageDialog(null," Contacto Gravado com sucesso");
       }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
       }
     
     
     }
-    @Override
-    public void delete(Tipoartigo ta) {
-    String sql="delete tipoartigo where codTipoProduto=?";
+    
+    
+    public void deleteC(Contactoc cc) {
+    String sql="delete Contactoc where codFornecedor=?";
         
         PreparedStatement stmt=null;
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setInt(1,ta.getCodTipoArtigo());
+          stmt.setInt(1,cc.getCodContacto());
           
           stmt.executeQuery();
           
@@ -86,18 +92,160 @@ public class TodoDAO {
     
     
     }
-    @Override
-    public List<Tipoartigo> listar() {
+   
+    public List<Contactoc> listarC() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List listarPorID(Integer i) {
+  
+    public List listarPorIDC(Integer i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    //DAO Endereco
+    //DAO ContactoF
+        
+    public Contactof inserirF(Contactof cf) {
+      String sql="insert into contactof(email,TelFixo,TelCelular,CodFornecedor) values (?,?,?,?)";
+      PreparedStatement stmt=null;
+      try{
+            stmt=con.prepareStatement(sql);
+            stmt.setString(1,cf.getEmail());
+            stmt.setInt(2,cf.getTelFixo());
+            stmt.setInt(3,cf.getTelCelular());
+            stmt.setInt(4,cf.getCodFornecedor());
+     
+
+            stmt.executeUpdate();
+            stmt.close();
+     JOptionPane.showMessageDialog(null," Contacto Gravado com sucesso");
+      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
+      }
+      return cf;
+    }
     
+    
+    public void updateF(Contactof cf) {
+    
+    String sql="Update contactof set email=? TelFixo=? telCelulat=? CodCliente=? where codContactof=?";
+      PreparedStatement stmt=null;
+      try{
+      stmt=con.prepareStatement(sql);
+      stmt.setString(1,cf.getEmail());
+      stmt.setInt(2,cf.getTelFixo());
+      stmt.setInt(3, cf.getTelCelular());
+      stmt.setInt(4, cf.getCodFornecedor());
+      stmt.setInt(5, cf.getCodContacto());
+      
+      stmt.executeUpdate();
+      stmt.close();
+     JOptionPane.showMessageDialog(null," Contacto Gravado com sucesso");
+      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
+      }
+    
+    
+    }
+    
+    
+    public void deleteF(Contactof cf) {
+    String sql="delete Contactof where codFornecedor=?";
+        
+        PreparedStatement stmt=null;
+      try {
+          stmt=con.prepareStatement(sql);
+          stmt.setInt(1,cf.getCodContacto());
+          
+          stmt.executeQuery();
+          
+          stmt.close();
+         
+      } catch (SQLException ex) {
+          Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    
+    
+    
+    }
+   
+    public List<Contactof> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
+    public List listarPorID(Integer i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    //DAO Endereco
+         public Endereco inserirE(Endereco en) {
+      String sql="insert into endereco (Distrito, Cidade, Avenida, Rua) values (?,?,?,?)";
+      PreparedStatement stmt=null;
+      try{
+            stmt=con.prepareStatement(sql);
+            stmt.setString(1,en.getDistrito());
+            stmt.setString(2,en.getCidade());
+            stmt.setString(3,en.getAvenida());
+            stmt.setString(4,en.getRua());
+     
+
+            stmt.executeUpdate();
+            stmt.close();
+     JOptionPane.showMessageDialog(null," endereco Gravado com sucesso");
+      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
+      }
+      return en;
+    }
+    
+    
+    public void updateE(Contactof en) {
+    
+    String sql="Update Endereco set email=? TelFixo=? telCelulat=? CodCliente=? where cod=?";
+      PreparedStatement stmt=null;
+      try{
+      stmt=con.prepareStatement(sql);
+      stmt.setString(1,en.getEmail());
+      stmt.setInt(2,en.getTelFixo());
+      stmt.setInt(3, en.getTelCelular());
+      stmt.setInt(4, en.getCodFornecedor());
+      stmt.setInt(5, en.getCodContacto());
+      
+      stmt.executeUpdate();
+      stmt.close();
+     JOptionPane.showMessageDialog(null," Endereco Gravado com sucesso");
+      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
+      }
+    
+    
+    }
+    
+    
+    public void deleteE(Endereco en) {
+    String sql="delete Endereco where codEndereco=?";
+        
+        PreparedStatement stmt=null;
+      try {
+          stmt=con.prepareStatement(sql);
+          stmt.setInt(1,en.getCodEndereco());
+          
+          stmt.executeQuery();
+          
+          stmt.close();
+         
+      } catch (SQLException ex) {
+          Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+    
+    
+    
+    }
+   
+    public List<Endereco> listarE() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+  
+    public List listarPorIDE(Integer i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     //DAO classe
     
     //DAO contas 

@@ -70,9 +70,11 @@ public class Factura implements Serializable {
     private Collection<Recibo> reciboCollection;
     @JoinColumn(name = "CodVenda", referencedColumnName = "CodVenda")
     @ManyToOne(optional = false)
-    private Venda codVenda;
+    private int codVenda;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "codFactura")
     private Collection<Nota> notaCollection;
+    
+    private String pesquisa;
 
     public Factura() {
     }
@@ -138,13 +140,23 @@ public class Factura implements Serializable {
         this.reciboCollection = reciboCollection;
     }
 
-    public Venda getCodVenda() {
+    public int getCodVenda() {
         return codVenda;
     }
 
-    public void setCodVenda(Venda codVenda) {
+    public void setCodVenda(int codVenda) {
         this.codVenda = codVenda;
     }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+    
+   
 
     @XmlTransient
     public Collection<Nota> getNotaCollection() {

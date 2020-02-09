@@ -54,7 +54,8 @@ public class Vd implements Serializable {
     private Date dataEmissao;
     @JoinColumn(name = "CodVenda", referencedColumnName = "CodVenda")
     @ManyToOne(optional = false)
-    private Venda codVenda;
+    private int codVenda;
+    private String pesquisa;
 
     public Vd() {
     }
@@ -102,14 +103,23 @@ public class Vd implements Serializable {
         this.dataEmissao = dataEmissao;
     }
 
-    public Venda getCodVenda() {
+    public int getCodVenda() {
         return codVenda;
     }
 
-    public void setCodVenda(Venda codVenda) {
+    public void setCodVenda(int codVenda) {
         this.codVenda = codVenda;
     }
 
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

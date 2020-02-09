@@ -9,6 +9,6 @@ package Controle;
  *
  * @author JEQUE
  */
-public class ContrVendas {
+public class ControlPaginaInicial {
     
 }

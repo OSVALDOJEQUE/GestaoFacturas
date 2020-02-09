@@ -62,7 +62,8 @@ public class Nota implements Serializable {
     private BigDecimal iva;
     @JoinColumn(name = "CodFactura", referencedColumnName = "CodFactura")
     @ManyToOne(optional = false)
-    private Factura codFactura;
+    private int codFactura;
+    private int pesquisa;
 
     public Nota() {
     }
@@ -128,13 +129,22 @@ public class Nota implements Serializable {
         this.iva = iva;
     }
 
-    public Factura getCodFactura() {
+    public int getCodFactura() {
         return codFactura;
     }
 
-    public void setCodFactura(Factura codFactura) {
+    public void setCodFactura(int codFactura) {
         this.codFactura = codFactura;
     }
+
+    public int getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(int pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+    
 
     @Override
     public int hashCode() {

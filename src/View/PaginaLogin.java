@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controle.ContrUsuario;
+import Controle.ControlUsuario;
 import Model.Dao.BDconexao;
 import Model.Entidade.Usuario;
 import java.awt.Color;
@@ -29,12 +29,12 @@ public class PaginaLogin extends javax.swing.JFrame {
      */
     
     Connection con;
-    private ContrUsuario cUsuario;
+    private ControlUsuario cUsuario;
     public static Usuario usuario;
     public PaginaLogin() {
        
         initComponents();
-        cUsuario=new ContrUsuario(this);
+        cUsuario=new ControlUsuario(this);
         con=BDconexao.getconnection();
     }
 

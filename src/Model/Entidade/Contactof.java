@@ -46,7 +46,8 @@ public class Contactof implements Serializable {
     private int telCelular;
     @JoinColumn(name = "CodFornecedor", referencedColumnName = "CodFornecedor")
     @ManyToOne(optional = false)
-    private Fornecedor codFornecedor;
+    private int codFornecedor;
+    private String pesquisa;
 
     public Contactof() {
     }
@@ -92,11 +93,11 @@ public class Contactof implements Serializable {
         this.telCelular = telCelular;
     }
 
-    public Fornecedor getCodFornecedor() {
+    public int getCodFornecedor() {
         return codFornecedor;
     }
 
-    public void setCodFornecedor(Fornecedor codFornecedor) {
+    public void setCodFornecedor(int codFornecedor) {
         this.codFornecedor = codFornecedor;
     }
 

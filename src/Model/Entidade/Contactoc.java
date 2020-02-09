@@ -47,6 +47,7 @@ public class Contactoc implements Serializable {
     @JoinColumn(name = "CodCliente", referencedColumnName = "CodCliente")
     @ManyToOne(optional = false)
     private int codCliente;
+    private String pesquisa;
 
     public Contactoc() {
     }
@@ -99,6 +100,15 @@ public class Contactoc implements Serializable {
     public void setCodCliente(int codCliente) {
         this.codCliente = codCliente;
     }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+    
 
     @Override
     public int hashCode() {

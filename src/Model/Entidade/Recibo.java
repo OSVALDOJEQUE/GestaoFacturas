@@ -51,6 +51,7 @@ public class Recibo implements Serializable {
     private BigDecimal valor;
     @ManyToMany(mappedBy = "reciboCollection")
     private Collection<Factura> facturaCollection;
+    private String pesquisa;
 
     public Recibo() {
     }
@@ -88,6 +89,16 @@ public class Recibo implements Serializable {
     public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
+
+    public String getPesquisa() {
+        return pesquisa;
+    }
+
+    public void setPesquisa(String pesquisa) {
+        this.pesquisa = pesquisa;
+    }
+    
+    
 
     @XmlTransient
     public Collection<Factura> getFacturaCollection() {

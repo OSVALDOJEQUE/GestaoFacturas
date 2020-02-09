@@ -5,52 +5,47 @@
  */
 package Model.Dao;
 
-import Model.Entidade.Factura;
+import Model.Entidade.Recibo;
 import Model.Entidade.Venda;
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLData;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.apache.commons.beanutils.converters.SqlDateConverter;
 
 /**
  *
  * @author JEQUE
  */
-public class FacturaDAO implements DaoInterface<Factura, Integer> {
+public class ReciboDAO  implements DaoInterface<Recibo, Integer>{
     
-     private Connection con;
+
+    private Connection con;
     
     BDconexao conex;
     
-    public FacturaDAO(){
+    public ReciboDAO(){
       con=BDconexao.getconnection();
  
     }
 
     @Override
-    public Factura inserir(Factura f) {
-        String sql="insert into factura(DataEmissao,DataValida,quantidade,Desconto,CodVenda) values(?,?,?,?,?)";
+    public Recibo inserir(Recibo r) {
+        String sql="insert into Recibo(DataEmissao, Valor) values(?,?)";
         PreparedStatement stmt=null;
         
         try {
             stmt=con.prepareStatement(sql);
             
-            
-            stmt.setDate(1, (Date) f.getDataEmissao());
-            stmt.setDate(2,(Date) f.getDataValidade());
-            stmt.setInt(3, f.getQuantidade());
-            stmt.setBigDecimal(4,f.getDesconto());
-            stmt.setInt(5, f.getCodVenda());
-            
+            stmt.setDate(1, (Date) r.getDataEmissao());
+            stmt.setBigDecimal(2,r.getValor());
+          
             stmt.execute(sql);
             stmt.close();
             JOptionPane.showMessageDialog(null, "Venda Efectuada com sucesso");
@@ -58,22 +53,20 @@ public class FacturaDAO implements DaoInterface<Factura, Integer> {
             Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-       return f;    
+       return r;    
     }
 
     @Override
-    public void update(Factura f) {
-      String sql="Update Factura set dataEmissao=? DataValidade=? Quantidade=? Desconto=? CodVenda=? where codFactura=?";
+    public void update(Recibo r) {
+      String sql="Update recibp set DataEmissao=? Valor=? where codRecibo=?";
       
       PreparedStatement stmt=null;
       
         try {
             stmt=con.prepareStatement(sql);
-           stmt.setDate(1, (Date) f.getDataEmissao());
-            stmt.setDate(2,(Date) f.getDataValidade());
-            stmt.setInt(3, f.getQuantidade());
-            stmt.setBigDecimal(4,f.getDesconto());
-            stmt.setInt(5, f.getCodVenda());
+            stmt.setDate(1, (Date) r.getDataEmissao());
+            stmt.setBigDecimal(2,r.getValor());
+            stmt.setInt(3, r.getCodRecibo());
             
             stmt.execute();
             stmt.close();
@@ -85,13 +78,13 @@ public class FacturaDAO implements DaoInterface<Factura, Integer> {
     }
 
     @Override
-    public void delete(Factura f) {
-          String sql="delete from venda where codVenda=?";
+    public void delete(Recibo r) {
+          String sql="delete from recibo where codVenda=?";
         
         PreparedStatement stmt=null;
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setInt(1,f.getCodFactura());
+          stmt.setInt(1,r.getCodRecibo());
           
           stmt.execute(); 
           stmt.close();
@@ -103,28 +96,25 @@ public class FacturaDAO implements DaoInterface<Factura, Integer> {
     }
 
     @Override
-    public List<Factura> listar() {
+    public List<Recibo> listar() {
         
-        String sql="Select* from Factura";
+        String sql="Select* from Recibo";
         PreparedStatement stmt=null;
         ResultSet rs=null;
-        List<Factura> facturas=new ArrayList();
+        List<Recibo> recibos=new ArrayList();
         
         try{
             stmt=con.prepareStatement(sql);
             rs=stmt.executeQuery();
             while(rs.next()){
-            Factura f=new Factura();
+            Recibo r=new Recibo();
             
-            f.setDataEmissao(Date.valueOf(rs.getString("DataEmissao")));
-             f.setDataEmissao(Date.valueOf(rs.getString("DataValidade")));
-             f.setQuantidade(Integer.parseInt(rs.getString("Quantidade")));
-             f.setDesconto(BigDecimal.valueOf(Double.parseDouble(rs.getString("Desconto"))));
-             f.setCodVenda(Integer.parseInt(rs.getString("CodVenda")));
-         
+            r.setDataEmissao((Date.valueOf(rs.getString("DataEmissao"))));
+            r.setValor(BigDecimal.valueOf(Double.parseDouble(rs.getString("Valor"))));
+            r.setCodRecibo(Integer.parseInt(rs.getNString("CodRecibo")));
              
          
-            facturas.add(f);
+            recibos.add(r);
             }
             stmt.close();
             rs.close();
@@ -132,7 +122,7 @@ public class FacturaDAO implements DaoInterface<Factura, Integer> {
         
         
         }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);}
-        return facturas;
+        return recibos;
        
     }
 
@@ -141,25 +131,21 @@ public class FacturaDAO implements DaoInterface<Factura, Integer> {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public Factura BuscaFornecedor(Factura f){
-       conex.executaSql("Select *from venda where nome like'%"+f.getPesquisa()+"%'");
+  public Recibo BuscaFornecedor(Recibo r){
+       conex.executaSql("Select *from Recibo  where nome like'%"+r.getPesquisa()+"%'");
         try {
             conex.rs.first();
-              f.setDataEmissao(Date.valueOf(conex.rs.getString("DataEmissao")));
-              f.setDataValidade(Date.valueOf(conex.rs.getString("DataValidade")));
-              f.setQuantidade(Integer.parseInt(conex.rs.getString("desconto")));
-              f.setDesconto(BigDecimal.valueOf(Double.parseDouble(conex.rs.getString("desconto"))));
-              f.setCodVenda(Integer.parseInt(conex.rs.getNString("CodVenda")));
+              r.setDataEmissao(Date.valueOf(conex.rs.getString("DataEmissao")));
+              r.setValor(BigDecimal.valueOf(Double.parseDouble(conex.rs.getString("desconto"))));
+            
              
         } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null,"Factura  Não Encontrada");
+               JOptionPane.showMessageDialog(null,"Recio Não Encontrado");
         }
      
-       return f;
+       return r;
     }
     
-    
-    
-    
-    
+
+
 }
