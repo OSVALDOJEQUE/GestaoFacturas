@@ -8,7 +8,7 @@ package View;
 import Model.Dao.BDconexao;
 import Model.Dao.FornecedorDAO;
 import Model.Entidade.Fornecedor;
-import Model.Entidade.Tabela;
+//import Model.Entidade.Tabela;
 import static View.PaginaLogin.usuario;
 import java.awt.CardLayout;
 import static java.lang.Thread.sleep;
@@ -47,7 +47,7 @@ public class PaginaInicial extends javax.swing.JFrame {
     public PaginaInicial() {
         initComponents();
         cardLayout=(CardLayout)(jPanelPrincipal.getLayout());
-     jComboBoxUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[]{usuario.getNome(), "Perfil", "Sair"}));
+     //jComboBoxUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[]{usuario.getNome(), "Perfil", "Sair"}));
         upTime(jLabel11);
         
     }

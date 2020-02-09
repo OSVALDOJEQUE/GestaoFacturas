@@ -5,47 +5,51 @@
  */
 package Model.Dao;
 
-import Model.Entidade.Fornecedor;
+import Model.Entidade.Factura;
 import Model.Entidade.Venda;
 import java.math.BigDecimal;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.apache.commons.beanutils.converters.SqlDateConverter;
 
 /**
  *
  * @author JEQUE
  */
-public class VendaDAO implements DaoInterface<Venda, Integer> {
+public class FacturaDAO implements DaoInterface<Factura, Integer> {
     
-    private Connection con;
+     private Connection con;
     
     BDconexao conex;
     
-    public VendaDAO(){
+    public FacturaDAO(){
       con=BDconexao.getconnection();
  
     }
 
     @Override
-    public Venda inserir(Venda v) {
-        String sql="insert into venda(quantidade,PrecoTotal,iva,Desconta,CodCliente) values(?,?,?,?,?)";
+    public Factura inserir(Factura f) {
+        String sql="insert into factura(DataEmissao,DataValida,quantidade,Desconto,CodVenda) values(?,?,?,?,?)";
         PreparedStatement stmt=null;
         
         try {
             stmt=con.prepareStatement(sql);
             
-            stmt.setInt(1, v.getQuantidade());
-            stmt.setBigDecimal(2,v.getIva());
-            stmt.setInt(3, v.getDesconta());
-            stmt.setBigDecimal(4, v.getIva());
-            stmt.setInt(5,v.getCodCliente());
+            
+            stmt.setDate(1, (Date) f.getDataEmissao());
+            stmt.setDate(2,(Date) f.getDataValidade());
+            stmt.setInt(3, f.getQuantidade());
+            stmt.setBigDecimal(4,f.getDesconto());
+            stmt.setInt(5, f.getCodVenda().getCodVenda());
             
             stmt.execute(sql);
             stmt.close();
@@ -54,23 +58,22 @@ public class VendaDAO implements DaoInterface<Venda, Integer> {
             Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-       return v;    
+       return f;    
     }
 
     @Override
-    public void update(Venda v) {
-      String sql="Update venda set quantidade=? precoUnit=? iva=? Desconta=? CodCliente=? where codVenda=?";
+    public void update(Factura f) {
+      String sql="Update Factura set dataEmissao=? DataValidade=? Quantidade=? Desconto=? CodVenda=? where codFactura=?";
       
       PreparedStatement stmt=null;
       
         try {
             stmt=con.prepareStatement(sql);
-              stmt.setInt(1, v.getQuantidade());
-            stmt.setBigDecimal(2,v.getIva());
-            stmt.setInt(3, v.getDesconta());
-            stmt.setBigDecimal(4, v.getIva());
-            stmt.setInt(5,v.getCodCliente());
-            stmt.setInt(6,v.getCodVenda());
+           stmt.setDate(1, (Date) f.getDataEmissao());
+            stmt.setDate(2,(Date) f.getDataValidade());
+            stmt.setInt(3, f.getQuantidade());
+            stmt.setBigDecimal(4,f.getDesconto());
+            stmt.setInt(5, f.getCodVenda().getCodVenda());
             
             stmt.execute();
             stmt.close();
@@ -82,13 +85,13 @@ public class VendaDAO implements DaoInterface<Venda, Integer> {
     }
 
     @Override
-    public void delete(Venda f) {
+    public void delete(Factura f) {
           String sql="delete from venda where codVenda=?";
         
         PreparedStatement stmt=null;
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setInt(1,f.getCodVenda());
+          stmt.setInt(1,f.getCodFactura());
           
           stmt.execute(); 
           stmt.close();
@@ -100,27 +103,28 @@ public class VendaDAO implements DaoInterface<Venda, Integer> {
     }
 
     @Override
-    public List<Venda> listar() {
+    public List<Factura> listar() {
         
-        String sql="Select* from Vendas";
+        String sql="Select* from Factura";
         PreparedStatement stmt=null;
         ResultSet rs=null;
-        List<Venda> vendas=new ArrayList();
+        List<Factura> facturas=new ArrayList();
         
         try{
             stmt=con.prepareStatement(sql);
             rs=stmt.executeQuery();
             while(rs.next()){
-            Venda v=new Venda();
+            Factura f=new Factura();
             
-            v.setQuantidade(Integer.parseInt(rs.getString("quantidade")));
-            v.setPrecoTotal(BigDecimal.valueOf(Double.parseDouble(rs.getString("PrecoTotal"))));
-            v.setIva(BigDecimal.valueOf(Double.parseDouble(rs.getString("Iva"))));
-            v.setDesconta(Integer.parseInt(rs.getString("PrecoTotal")));
-            v.setCodCliente(Integer.parseInt(rs.getNString("CodCliente")));
+            f.setDataEmissao((SQLData)(rs.getString("DataEmissao")));
+             f.setDataEmissao(()rs.getString("DataValidade"));
+             f.setQuantidade(Integer.parseInt(rs.getString("Quantidade")));
+             f.setDesconto(BigDecimal.valueOf(Double.parseDouble(rs.getString("Desconto"))));
+             f.setCodVenda((Venda)(Object)Integer.parseInt(rs.getString("CodVenda")));
+         
              
          
-            vendas.add(v);
+            facturas.add(f);
             }
             stmt.close();
             rs.close();
@@ -128,7 +132,7 @@ public class VendaDAO implements DaoInterface<Venda, Integer> {
         
         
         }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);}
-        return vendas;
+        return facturas;
        
     }
 
@@ -153,6 +157,7 @@ public class VendaDAO implements DaoInterface<Venda, Integer> {
      
        return v;
     }
+    
     
     
     

@@ -77,8 +77,9 @@ public class ContrUsuario {
            do{
             usuario.setNome(conex.rs.getString("nome"));
             usuario.setSenha(conex.rs.getString("senha"));
-            usuario.setTipo(conex.rs.getString("Tipo"));
+           
            result=true;
+           JOptionPane.showMessageDialog(null, "usuario Encontrado");
            }while(conex.rs.next());
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao carregar usuario");

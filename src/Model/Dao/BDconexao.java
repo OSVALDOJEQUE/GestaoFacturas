@@ -20,8 +20,9 @@ import javax.swing.JOptionPane;
 public class BDconexao {
     public Statement stm;
     public ResultSet rs;
+    
     private static final String Driver="com.mysql.jdbc.Driver";
-    private static final String URL="jdbc:mysql://localhost/gestao";
+    private static final String URL="jdbc:mysql://localhost/iva";
     private static final String user="root";
     private static final String password="";
     public Connection con;

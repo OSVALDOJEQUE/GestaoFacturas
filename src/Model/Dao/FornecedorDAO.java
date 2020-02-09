@@ -28,25 +28,26 @@ public class FornecedorDAO implements DaoInterface<Fornecedor,Integer> {
     
      BDconexao conex=new BDconexao();
      
-    
+   
     public FornecedorDAO(){
         con=BDconexao.getconnection();
         
-       
-       
       }
 
  
     public Fornecedor inserir(Fornecedor f) {
       
-        String sql="insert into Fornecedor(nome,endereco,telefone) values(?,?,?)";
+        String sql="insert into Fornecedor(nome,Nuit,NrEdificio,CodPostal,CaixaPostal.CodEndereco) values(?,?,?,?,?,?)";
       PreparedStatement stmt=null;
       try{
       stmt=con.prepareStatement(sql);
       stmt.setString(1,f.getNome());
-      stmt.setString(2,f.getEndereco());
-      stmt.setInt(3,f.getTelefone());
-      
+      stmt.setInt(2,f.getNuit());
+      stmt.setInt(3,f.getNrEdficio());
+      stmt.setInt(4, f.getCaixaPostal());
+      stmt.setInt(5, f.getCodPostal());
+      stmt.setInt(6,f.getCodEndereco());
+   
       stmt.executeUpdate();
       stmt.close();
      JOptionPane.showMessageDialog(null," Forncedor Gravado com sucesso");
@@ -59,15 +60,18 @@ public class FornecedorDAO implements DaoInterface<Fornecedor,Integer> {
     @Override
     public void update(Fornecedor f) {
         
-        String sql="update Fornecedor set nome=?,endereco=?,telefone=? where codFornecedor=?";
+        String sql="update Fornecedor set nome=?,Nuit=?,NrEdificio=?, CaixaPosta=?,CodPostal, CodEndereco=? where codFornecedor=?";
         
         PreparedStatement stmt=null;
         try{
-        stmt=con.prepareStatement(sql);
-        stmt.setString(1,f.getNome());
-        stmt.setString(2,f.getEndereco());
-        stmt.setInt(3, f.getTelefone());
-        stmt.setInt(4,f.getCodFornecedor());
+      stmt.setString(1,f.getNome());
+      stmt.setInt(2,f.getNuit());
+      stmt.setInt(3,f.getNrEdficio());
+      stmt.setInt(4, f.getCaixaPostal());
+      stmt.setInt(5, f.getCodPostal());
+      stmt.setInt(6,f.getCodEndereco());
+      stmt.setInt(7, f.getCodFornecedor());
+        
         stmt.execute();
        stmt.close();
         
@@ -108,11 +112,13 @@ public class FornecedorDAO implements DaoInterface<Fornecedor,Integer> {
             while(rs.next()){
             Fornecedor f=new Fornecedor();
             
-            f.setCodFornecedor(rs.getInt("CodFornecedor"));
             f.setNome(rs.getString("nome"));
-            f.setEndereco(rs.getString("Endereco"));
-            f.setTelefone(rs.getInt("telefone"));
-            
+            f.setNuit(Integer.parseInt(rs.getString("Nuit"))) ;
+             f.setNrEdficio(Integer.parseInt(rs.getString("NrEdificio")));
+             f.setCaixaPostal(Integer.parseInt(rs.getString("CaixaPostal"))) ;
+               f.setCodPostal(Integer.parseInt(rs.getString("CodPostal"))) ;
+             f.setCodEndereco(Integer.parseInt(rs.getString("CodEndereco")));
+         
             fornecedores.add(f);
             }
             stmt.close();
@@ -139,10 +145,12 @@ public class FornecedorDAO implements DaoInterface<Fornecedor,Integer> {
             
             while(rs.next()){
             Fornecedor f=new Fornecedor();
-            f.setCodFornecedor(rs.getInt("CodFornecedor"));
-            f.setNome(rs.getString("nome"));
-            f.setEndereco(rs.getString("Endereco"));
-            f.setTelefone(rs.getInt("telefone"));
+               f.setNome(rs.getString("nome"));
+            f.setNuit(Integer.parseInt(rs.getString("Nuit"))) ;
+             f.setNrEdficio(Integer.parseInt(rs.getString("NrEdificio")));
+             f.setCaixaPostal(Integer.parseInt(rs.getString("CaixaPostal"))) ;
+               f.setCodPostal(Integer.parseInt(rs.getString("CodPostal"))) ;
+             f.setCodEndereco(Integer.parseInt(rs.getString("CodEndereco")));
             
             fornecedores.add(f);
             }
@@ -161,14 +169,18 @@ public class FornecedorDAO implements DaoInterface<Fornecedor,Integer> {
             conex.rs.first();
             fo.setCodFornecedor(conex.rs.getInt("codFornecedor"));
             fo.setNome(conex.rs.getString("Nome"));
-            fo.setEndereco(conex.rs.getString("Endereco"));
-            fo.setTelefone(conex.rs.getInt("Telefone"));
+            fo.setNuit(Integer.parseInt(conex.rs.getString("CaixaPostal")));
+            fo.setNrEdficio(Integer.parseInt(conex.rs.getString("NrEdifico")));
+            fo.setCaixaPostal(Integer.parseInt(conex.rs.getString("CaixaPostal")));
+            fo.setCodPostal(Integer.parseInt(conex.rs.getString("CodPostal")));
+            fo.setCodEndereco(Integer.parseInt(conex.rs.getString("CodEndereco")));
         } catch (SQLException ex) {
                JOptionPane.showMessageDialog(null,"Fornecedor Não cadastrado");
         }
      
        return fo;
     }
+    
     
     
 }

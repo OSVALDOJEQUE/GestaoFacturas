@@ -5,7 +5,7 @@
  */
 package Model.Dao;
 
-import Model.Entidade.Usuario;
+import Model.Entidade.Tipoartigo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -18,66 +18,61 @@ import javax.swing.JOptionPane;
  *
  * @author JEQUE
  */
-public class UsuarioDAO implements DaoInterface<Usuario,Integer> {
+public class TipoArtigoDAO implements DaoInterface<Tipoartigo,Integer>{
     Connection con=null;
     
-   public UsuarioDAO(){
+    public TipoArtigoDAO(){
     
     con=BDconexao.getconnection();
     }
 
     @Override
-    public Usuario inserir(Usuario u) {
-         String sql="insert into usuario(nome,senha,Tipo)values(?,?,?)";
+    public Tipoartigo inserir(Tipoartigo ta) {
+         String sql="insert into tipoartigo(Descricao) values(?)";
       PreparedStatement stmt=null;
       try{
       stmt=con.prepareStatement(sql);
-     
-      stmt.setString(1,u.getNome());
-      stmt.setString(2,u.getSenha());
-      stmt.setString(3,u.getTipo());
+      stmt.setString(1,ta.getDescricao());
       
-     
       stmt.executeUpdate();
       stmt.close();
      JOptionPane.showMessageDialog(null," Categoria Gravado com sucesso");
       }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
       }
-      return u;
+      return ta;
     }
 
     @Override
-    public void update(Usuario u) {
+    public void update(Tipoartigo ta) {
     
-    String sql="Update usuario set nome=?,senha=?,Tipo=? where codUsuario=?";
+    String sql="Update tipoartigo set DescrTipoProduto=? where CodTipoArtigo=?";
       PreparedStatement stmt=null;
       try{
       stmt=con.prepareStatement(sql);
-      stmt.setString(1, u.getNome());
-      stmt.setString(2,u.getSenha());
-      stmt.setString(3,u.getTipo());
-      stmt.setInt(4,u.getCodUsuario());
+      stmt.setString(1,ta.getDescricao());
+      stmt.setInt(2,ta.getCodTipoArtigo());
       
-      stmt.execute();
+      stmt.executeUpdate();
       stmt.close();
-     JOptionPane.showMessageDialog(null," Usuario alterado com sucesso");
-      }catch(SQLException ex){JOptionPane.showMessageDialog(null," Usuario alterado com sucesso"+ex);
+     JOptionPane.showMessageDialog(null," Categoria Gravado com sucesso");
+      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
       }
     
     
     }
     @Override
-    public void delete(Usuario u) {
-    String sql="delete from Usuario where codUsuario=?";
+    public void delete(Tipoartigo ta) {
+    String sql="delete tipoartigo where codTipoProduto=?";
         
         PreparedStatement stmt=null;
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setInt(1,u.getCodUsuario());
+          stmt.setInt(1,ta.getCodTipoArtigo());
           
-          stmt.execute(); 
+          stmt.executeQuery();
+          
           stmt.close();
-          
+         
       } catch (SQLException ex) {
           Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
@@ -85,10 +80,8 @@ public class UsuarioDAO implements DaoInterface<Usuario,Integer> {
     
     
     }
-
-   
     @Override
-    public List<Usuario> listar() {
+    public List<Tipoartigo> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -96,4 +89,5 @@ public class UsuarioDAO implements DaoInterface<Usuario,Integer> {
     public List listarPorID(Integer i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

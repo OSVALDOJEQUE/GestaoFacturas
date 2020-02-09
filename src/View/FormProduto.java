@@ -7,7 +7,7 @@ package View;
 
 import Model.Dao.BDconexao;
 import Model.Dao.FornecedorDAO;
-import Model.Dao.ProdutoDAO;
+import Model.Dao.ArtigoDAO;
 import Model.Entidade.Fornecedor;
 import Model.Entidade.Produto;
 import Model.Entidade.Tabela;
@@ -30,7 +30,7 @@ public class FormProduto extends javax.swing.JFrame {
 
     
     Produto pmode=new Produto();
-    ProdutoDAO pdao=new ProdutoDAO();
+    ArtigoDAO pdao=new ArtigoDAO();
     BDconexao conex=new BDconexao();
     Connection con;
     int flag=0;

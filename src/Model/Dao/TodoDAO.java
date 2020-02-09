@@ -5,7 +5,8 @@
  */
 package Model.Dao;
 
-import Model.Entidade.Tipoproduto;
+import Model.Entidade.Contactoc;
+import Model.Entidade.Tipoartigo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -18,70 +19,75 @@ import javax.swing.JOptionPane;
  *
  * @author JEQUE
  */
-public class TipoProdutoDAO implements DaoInterface<Tipoproduto,Integer>{
-    Connection con=null;
+public class TodoDAO {
     
-    public TipoProdutoDAO(){
+    Connection con;
     
-    con=BDconexao.getconnection();
+    public TodoDAO(){
+   
+    }
+    
+    
+   // DAO Contactos
+    
+    public Contactoc inserir(Contactoc cc) {
+      String sql="insert into contactoc(email,TelFixo,TelCelular,CodCliente) values (?,?,?,?)";
+      PreparedStatement stmt=null;
+      try{
+            stmt=con.prepareStatement(sql);
+            stmt.setString(1,cc.getEmail());
+            stmt.setInt(2,cc.getTelFixo());
+            stmt.setInt(3,cc.getTelCelular());
+            stmt.setInt(4,cc.getCodCliente());
+
+            stmt.executeUpdate();
+            stmt.close();
+     JOptionPane.showMessageDialog(null," Categoria Gravado com sucesso");
+      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
+      }
+      return cc;
     }
 
     @Override
-    public Tipoproduto inserir(Tipoproduto tp) {
-         String sql="insert into tipoProduto(DescrTipoProduto) values(?)";
+    public void update(Tipoartigo ta) {
+    
+    String sql="Update tipoartigo set DescrTipoProduto=? where CodTipoArtigo=?";
       PreparedStatement stmt=null;
       try{
       stmt=con.prepareStatement(sql);
-      stmt.setString(1,tp.getDescrTipoProduto());
+      stmt.setString(1,ta.getDescricao());
+      stmt.setInt(2,ta.getCodTipoArtigo());
       
       stmt.executeUpdate();
       stmt.close();
      JOptionPane.showMessageDialog(null," Categoria Gravado com sucesso");
       }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
       }
-      return tp;
-    }
-
-    @Override
-    public void update(Tipoproduto tp) {
-    
-    String sql="Update TipoProduto set DescrTipoProduto=? where CodTipoProduto=?";
-      PreparedStatement stmt=null;
-      try{
-      stmt=con.prepareStatement(sql);
-      stmt.setString(1,tp.getDescrTipoProduto());
-      stmt.setInt(2,tp.getCodTipoProduto());
-      
-      stmt.executeUpdate();
-      stmt.close();
-     JOptionPane.showMessageDialog(null," Categoria Gravado com sucesso");
-      }catch(SQLException ex){Logger.getLogger(BDconexao.class.getName()).log(Level.SEVERE,null,ex);
-      }
     
     
     }
     @Override
-    public void delete(Tipoproduto tp) {
-    String sql="delete tipoProduto where codTipoProduto=?";
+    public void delete(Tipoartigo ta) {
+    String sql="delete tipoartigo where codTipoProduto=?";
         
         PreparedStatement stmt=null;
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setInt(1,tp.getCodTipoProduto());
+          stmt.setInt(1,ta.getCodTipoArtigo());
           
           stmt.executeQuery();
           
           stmt.close();
          
       } catch (SQLException ex) {
-          Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
     
     
     
     }
     @Override
-    public List<Tipoproduto> listar() {
+    public List<Tipoartigo> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -89,5 +95,14 @@ public class TipoProdutoDAO implements DaoInterface<Tipoproduto,Integer>{
     public List listarPorID(Integer i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    //DAO Endereco
+    
+    //DAO classe
+    
+    //DAO contas 
+    
+    
+    
     
 }

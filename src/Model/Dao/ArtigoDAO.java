@@ -5,7 +5,7 @@
  */
 package Model.Dao;
 
-import Model.Entidade.Produto;
+import Model.Entidade.Artigo;
 import java.sql.*;
 import java.util.List;
 import java.util.logging.Level;
@@ -16,80 +16,78 @@ import javax.swing.JOptionPane;
  *
  * @author JEQUE
  */
-public class ProdutoDAO implements DaoInterface<Produto,Integer>
+public class ArtigoDAO implements DaoInterface<Artigo,Integer>
 {
   Connection con;
   
-  public ProdutoDAO()
+  public ArtigoDAO()
   {
   con=BDconexao.getconnection();
   }
 
    
-    public Produto inserir(Produto p) {
-        String sql="insert into Produto (Descr,Artigo,CodFornecedor,PrecoUnit,CodTipoProduto) value (?,?,?,?,?)";
+    public Artigo inserir(Artigo a) {
+        String sql="insert into Artigo (Descricao,Quantidade,precoUnit,CodTipoArtigo) value (?,?,?,?)";
         PreparedStatement stmt=null;
         
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setString(1,p.getDescr());
-          stmt.setInt(2,p.getQuantidade());
-          stmt.setInt(3,p.getCodFornecedor());
-          stmt.setDouble(4,p.getPrecoUnit());
-          stmt.setInt(5,p.getCodTipoProduto());
+          stmt.setString(1,a.getDescricao());
+          stmt.setInt(2,a.getQuantidade());
+          stmt.setBigDecimal(3,a.getPrecoUnit());
+          stmt.setInt(4,a.getCodTipoArtigo());
           
           stmt.executeUpdate();
           stmt.close();
           
           JOptionPane.showMessageDialog(null,"Produto Salvo com Sucesso");
       } catch (SQLException ex) {
-          Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
            
-     return p;   
+     return a;   
     }
 
     @Override
-    public void update(Produto p) {
-    String sql="Update Produto set Descr=?,Artigo=?,CodFornecedor=?,PrecoUnit=?,CodTipoProduto=?"+
+    public void update(Artigo a) {
+    String sql="Update CodArtigo set Descr=?,Artigo=?,CodFornecedor=?,PrecoUnit=?,CodArtigo=?"+
            " where CodProduto=?";
         PreparedStatement stmt=null;
         
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setString(1,p.getDescr());
-          stmt.setInt(2,p.getQuantidade());
-          stmt.setInt(3,p.getCodFornecedor());
-          stmt.setDouble(4,p.getPrecoUnit());
-          stmt.setInt(5,p.getCodTipoProduto());
-          stmt.setInt(6,p.getCodProduto());
+        stmt.setString(1,a.getDescricao());
+          stmt.setInt(2,a.getQuantidade());
+          stmt.setBigDecimal(3,a.getPrecoUnit());
+          stmt.setInt(4,a.getCodTipoArtigo());
+          stmt.setInt(5,a.getCodArtigo());
           
           stmt.execute();
           stmt.close();
           
           JOptionPane.showMessageDialog(null,"Actualizado com Sucesso");
       } catch (SQLException ex) {
-          Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
    
     }
 
     @Override
-    public void delete(Produto p) {
+    public void delete(Artigo a) {
     
-        String sql="delete from Produto where CodProduto=?";
+        String sql="delete from Artigo where CodProduto=?";
         
         PreparedStatement stmt=null;
       try {
           stmt=con.prepareStatement(sql);
-          stmt.setInt(1,p.getCodProduto());
+          stmt.setInt(1,a.getCodArtigo());
           
           stmt.execute();
           
           stmt.close();
          
       } catch (SQLException ex) {
-          Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(ArtigoDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
     
     
@@ -97,7 +95,7 @@ public class ProdutoDAO implements DaoInterface<Produto,Integer>
     }
 
     @Override
-    public List<Produto> listar() {
+    public List<Artigo> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -7,8 +7,8 @@ package View;
 
 import Model.Dao.BDconexao;
 import Model.Dao.FornecedorDAO;
-import Model.Dao.ProdutoDAO;
-import Model.Dao.TipoProdutoDAO;
+import Model.Dao.ArtigoDAO;
+import Model.Dao.TipoArtigoDAO;
 import Model.Dao.UsuarioDAO;
 import Model.Entidade.Fornecedor;
 import Model.Entidade.Tabela;
@@ -28,7 +28,7 @@ import javax.swing.ListSelectionModel;
 public class FormCategoria extends javax.swing.JFrame {
 
     Tipoproduto tmode=new Tipoproduto();
-    TipoProdutoDAO tdao=new TipoProdutoDAO();
+    TipoArtigoDAO tdao=new TipoArtigoDAO();
     Connection con;
     BDconexao conex=new BDconexao();
      int flag=0;

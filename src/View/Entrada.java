@@ -71,6 +71,7 @@ new Thread(){
         getContentPane().add(jLabel1);
         jLabel1.setBounds(130, 150, 324, 17);
 
+        jProgressBar1.setForeground(new java.awt.Color(153, 255, 255));
         jProgressBar1.setMaximum(10);
         jProgressBar1.setStringPainted(true);
         getContentPane().add(jProgressBar1);
