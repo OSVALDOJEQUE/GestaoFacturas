@@ -176,7 +176,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().setLayout(null);
 
         jButton_Home.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\home.png")); // NOI18N
         jButton_Home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_HomeActionPerformed(evt);
@@ -184,7 +183,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
 
         jButton_Gravar.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Gravar.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\gravar.png")); // NOI18N
         jButton_Gravar.setText("Gravar");
         jButton_Gravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,7 +200,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
 
         jButton_Imprimir.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Imprimir.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\imprimir.png")); // NOI18N
         jButton_Imprimir.setText("Imprimir");
         jButton_Imprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +208,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
 
         jButton_Copiar.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Copiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\copiar.png")); // NOI18N
         jButton_Copiar.setText("Copiar");
         jButton_Copiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,7 +216,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
 
         jButton_Procurar.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Procurar.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\procurar.png")); // NOI18N
         jButton_Procurar.setText("Procurar");
         jButton_Procurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,7 +224,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
 
         jButton14.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton14.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\cancelar.png")); // NOI18N
         jButton14.setText("Cancelar");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,7 +459,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                     .addComponent(jComboBox_Entidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jComboBox_Entidade1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_Valores, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jPanel_Valores, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
         );
         jPanel_VendasLayout.setVerticalGroup(
             jPanel_VendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -646,7 +640,7 @@ public class PaginaInicial extends javax.swing.JFrame {
             .addGroup(jPanelComprasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1694, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComprasLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -657,7 +651,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         jPanelComprasLayout.setVerticalGroup(
             jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComprasLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(400, Short.MAX_VALUE)
                 .addGroup(jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
@@ -686,7 +680,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         jPanelFacturarLayout.setHorizontalGroup(
             jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFacturarLayout.createSequentialGroup()
-                .addContainerGap(504, Short.MAX_VALUE)
+                .addContainerGap(1470, Short.MAX_VALUE)
                 .addComponent(jButton11)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
@@ -697,7 +691,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         jPanelFacturarLayout.setVerticalGroup(
             jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFacturarLayout.createSequentialGroup()
-                .addContainerGap(372, Short.MAX_VALUE)
+                .addContainerGap(758, Short.MAX_VALUE)
                 .addGroup(jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton10)
@@ -745,7 +739,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanelFornecedorLayout.createSequentialGroup()
                         .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 509, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1475, Short.MAX_VALUE)
                         .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -761,7 +755,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                         .addComponent(jButtonPesquisa))
                     .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1089,7 +1083,7 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(966, 129));
+        setSize(new java.awt.Dimension(966, 456));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
