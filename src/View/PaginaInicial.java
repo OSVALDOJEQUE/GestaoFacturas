@@ -61,8 +61,43 @@ public class PaginaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSpinner1 = new javax.swing.JSpinner();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jLabel11 = new javax.swing.JLabel();
+        jPanelPrincipal = new javax.swing.JPanel();
+        jPanelVendas = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableFacturas = new javax.swing.JTable();
+        jbNovaFactura = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jbNovaVenda = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        jPanelCompras = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTableFacturas1 = new javax.swing.JTable();
+        jTextField6 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jPanelFacturar = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jPanelFornecedor = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableForncedor = new javax.swing.JTable();
+        jButtonPesquisa = new javax.swing.JButton();
+        jTextFieldPesquisa = new javax.swing.JTextField();
+        jButtonNovo = new javax.swing.JButton();
+        jPanelInicial = new javax.swing.JPanel();
+        jLabelFundo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        try {
+            jInternalFrame1 =(javax.swing.JInternalFrame)java.beans.Beans.instantiate(getClass().getClassLoader(), "View.PaginaInicial_jInternalFrame1");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
         jPanelMenuVendas = new javax.swing.JPanel();
         jButton_Home = new javax.swing.JButton();
         jButton_Gravar = new javax.swing.JButton();
@@ -78,7 +113,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         jScrollPane_Entidade = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jComboBox_Entidade = new javax.swing.JComboBox<>();
-        jComboBox_Entidade1 = new javax.swing.JComboBox<>();
+        jComboBox_Documentos = new javax.swing.JComboBox<>();
         jPanel_TabelaVendas = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -102,36 +137,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel_TermosPagamento = new javax.swing.JPanel();
-        jPanelVendas = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableFacturas = new javax.swing.JTable();
-        jbNovaFactura = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jbNovaVenda = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jPanelPrincipal = new javax.swing.JPanel();
-        jPanelCompras = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTableFacturas1 = new javax.swing.JTable();
-        jTextField6 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jPanelFacturar = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jPanelFornecedor = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableForncedor = new javax.swing.JTable();
-        jButtonPesquisa = new javax.swing.JButton();
-        jTextFieldPesquisa = new javax.swing.JTextField();
-        jButtonNovo = new javax.swing.JButton();
-        jPanelInicial = new javax.swing.JPanel();
-        jLabelFundo = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButtonVendas = new javax.swing.JButton();
         jButtonCompras = new javax.swing.JButton();
@@ -171,8 +176,297 @@ public class PaginaInicial extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        jInternalFrame1.setClosable(true);
-        jInternalFrame1.setVisible(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gestao de Facturas");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(java.awt.Color.darkGray);
+        setType(java.awt.Window.Type.POPUP);
+        getContentPane().setLayout(null);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel11.setText("Hora");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(30, 440, 110, 15);
+
+        jPanelPrincipal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanelPrincipal.setLayout(new java.awt.CardLayout());
+
+        jPanelVendas.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelVendas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTableFacturas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Artigo", "Descricao", "descricao", "Iva", "Preco/Unidade", "Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTableFacturas);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jbNovaFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/new.png"))); // NOI18N
+        jbNovaFactura.setOpaque(false);
+        jbNovaFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNovaFacturaActionPerformed(evt);
+            }
+        });
+
+        jLabel19.setText("nova factura");
+
+        jButton3.setText("Pesuisa");
+
+        jbNovaVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/new.png"))); // NOI18N
+        jbNovaVenda.setOpaque(false);
+        jbNovaVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNovaVendaActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("nova venda");
+
+        javax.swing.GroupLayout jPanelVendasLayout = new javax.swing.GroupLayout(jPanelVendas);
+        jPanelVendas.setLayout(jPanelVendasLayout);
+        jPanelVendasLayout.setHorizontalGroup(
+            jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanelVendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jbNovaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel19)
+                .addGap(18, 18, 18)
+                .addComponent(jbNovaVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel18)
+                .addGap(164, 164, 164)
+                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelVendasLayout.setVerticalGroup(
+            jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVendasLayout.createSequentialGroup()
+                .addGroup(jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jbNovaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3)
+                        .addComponent(jLabel18))
+                    .addComponent(jbNovaVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanelPrincipal.add(jPanelVendas, "card6");
+
+        jPanelCompras.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTableFacturas1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Artigo", "Descricao", "descricao", "Iva", "Preco/Unidade", "Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTableFacturas1);
+
+        jButton4.setText("Pesuisa");
+
+        javax.swing.GroupLayout jPanelComprasLayout = new javax.swing.GroupLayout(jPanelCompras);
+        jPanelCompras.setLayout(jPanelComprasLayout);
+        jPanelComprasLayout.setHorizontalGroup(
+            jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelComprasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1694, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComprasLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4)))
+                .addContainerGap())
+        );
+        jPanelComprasLayout.setVerticalGroup(
+            jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComprasLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanelPrincipal.add(jPanelCompras, "telaCompras");
+
+        jPanelFacturar.setBackground(new java.awt.Color(255, 255, 255));
+
+        jButton2.setText("Imprimir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Enviar");
+
+        jButton11.setText("Voltar");
+
+        javax.swing.GroupLayout jPanelFacturarLayout = new javax.swing.GroupLayout(jPanelFacturar);
+        jPanelFacturar.setLayout(jPanelFacturarLayout);
+        jPanelFacturarLayout.setHorizontalGroup(
+            jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFacturarLayout.createSequentialGroup()
+                .addContainerGap(1470, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton10)
+                .addGap(25, 25, 25))
+        );
+        jPanelFacturarLayout.setVerticalGroup(
+            jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFacturarLayout.createSequentialGroup()
+                .addContainerGap(372, Short.MAX_VALUE)
+                .addGroup(jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton10)
+                    .addComponent(jButton11))
+                .addContainerGap())
+        );
+
+        jPanelPrincipal.add(jPanelFacturar, "telaFacturar");
+
+        jPanelFornecedor.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelFornecedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jTableForncedor.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 255, 255), null));
+        jTableForncedor.setOpaque(false);
+        jTableForncedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableForncedorMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableForncedor);
+
+        jButtonPesquisa.setText("Pesquisa");
+        jButtonPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPesquisaActionPerformed(evt);
+            }
+        });
+
+        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Capturar.PNG"))); // NOI18N
+        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNovoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelFornecedorLayout = new javax.swing.GroupLayout(jPanelFornecedor);
+        jPanelFornecedor.setLayout(jPanelFornecedorLayout);
+        jPanelFornecedorLayout.setHorizontalGroup(
+            jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFornecedorLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelFornecedorLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(jPanelFornecedorLayout.createSequentialGroup()
+                        .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1475, Short.MAX_VALUE)
+                        .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))))
+        );
+        jPanelFornecedorLayout.setVerticalGroup(
+            jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFornecedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonPesquisa))
+                    .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanelPrincipal.add(jPanelFornecedor, "telaFornecedor");
+
+        jPanelInicial.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabelFundo.setBackground(new java.awt.Color(250, 250, 250));
+
+        javax.swing.GroupLayout jPanelInicialLayout = new javax.swing.GroupLayout(jPanelInicial);
+        jPanelInicial.setLayout(jPanelInicialLayout);
+        jPanelInicialLayout.setHorizontalGroup(
+            jPanelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInicialLayout.createSequentialGroup()
+                .addComponent(jLabelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(754, 754, 754)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanelInicialLayout.setVerticalGroup(
+            jPanelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelFundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInicialLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanelPrincipal.add(jPanelInicial, "telaInicial");
+
         jInternalFrame1.getContentPane().setLayout(null);
 
         jButton_Home.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
@@ -242,7 +536,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                 .addComponent(jButton_Home)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addComponent(jButton_Gravar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_Novo)
@@ -283,17 +577,15 @@ public class PaginaInicial extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane_Entidade.setViewportView(jTextArea1);
 
-        jComboBox_Entidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox_Entidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox_EntidadeActionPerformed(evt);
             }
         });
 
-        jComboBox_Entidade1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox_Entidade1.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox_Documentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox_Entidade1ActionPerformed(evt);
+                jComboBox_DocumentosActionPerformed(evt);
             }
         });
 
@@ -457,9 +749,9 @@ public class PaginaInicial extends javax.swing.JFrame {
                 .addGroup(jPanel_VendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane_Entidade, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                     .addComponent(jComboBox_Entidade, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox_Entidade1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jComboBox_Documentos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel_Valores, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jPanel_Valores, javax.swing.GroupLayout.PREFERRED_SIZE, 405, Short.MAX_VALUE))
         );
         jPanel_VendasLayout.setVerticalGroup(
             jPanel_VendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -471,7 +763,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane_Entidade, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox_Entidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jComboBox_Documentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel_Valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel_TabelaVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -497,294 +789,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         jInternalFrame1.getContentPane().add(jPanel6);
         jPanel6.setBounds(0, 50, 760, 460);
 
-        jPanelVendas.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelVendas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTableFacturas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Artigo", "Descricao", "descricao", "Iva", "Preco/Unidade", "Total"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTableFacturas);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 724, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-
-        jbNovaFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/new.png"))); // NOI18N
-        jbNovaFactura.setOpaque(false);
-        jbNovaFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbNovaFacturaActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("nova factura");
-
-        jButton3.setText("Pesuisa");
-
-        jbNovaVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/new.png"))); // NOI18N
-        jbNovaVenda.setOpaque(false);
-        jbNovaVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbNovaVendaActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setText("nova venda");
-
-        javax.swing.GroupLayout jPanelVendasLayout = new javax.swing.GroupLayout(jPanelVendas);
-        jPanelVendas.setLayout(jPanelVendasLayout);
-        jPanelVendasLayout.setHorizontalGroup(
-            jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanelVendasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jbNovaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addComponent(jbNovaVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel18)
-                .addGap(164, 164, 164)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanelVendasLayout.setVerticalGroup(
-            jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVendasLayout.createSequentialGroup()
-                .addGroup(jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jbNovaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3)
-                        .addComponent(jLabel18))
-                    .addComponent(jbNovaVenda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Gestao de Facturas");
-        setBackground(new java.awt.Color(255, 255, 255));
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setForeground(java.awt.Color.darkGray);
-        setType(java.awt.Window.Type.POPUP);
-        getContentPane().setLayout(null);
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setText("Hora");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(30, 440, 110, 15);
-
-        jPanelPrincipal.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanelPrincipal.setLayout(new java.awt.CardLayout());
-
-        jPanelCompras.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTableFacturas1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Artigo", "Descricao", "descricao", "Iva", "Preco/Unidade", "Total"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(jTableFacturas1);
-
-        jButton4.setText("Pesuisa");
-
-        javax.swing.GroupLayout jPanelComprasLayout = new javax.swing.GroupLayout(jPanelCompras);
-        jPanelCompras.setLayout(jPanelComprasLayout);
-        jPanelComprasLayout.setHorizontalGroup(
-            jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelComprasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 1694, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComprasLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
-                .addContainerGap())
-        );
-        jPanelComprasLayout.setVerticalGroup(
-            jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComprasLayout.createSequentialGroup()
-                .addContainerGap(400, Short.MAX_VALUE)
-                .addGroup(jPanelComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanelPrincipal.add(jPanelCompras, "telaCompras");
-
-        jPanelFacturar.setBackground(new java.awt.Color(255, 255, 255));
-
-        jButton2.setText("Imprimir");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton10.setText("Enviar");
-
-        jButton11.setText("Voltar");
-
-        javax.swing.GroupLayout jPanelFacturarLayout = new javax.swing.GroupLayout(jPanelFacturar);
-        jPanelFacturar.setLayout(jPanelFacturarLayout);
-        jPanelFacturarLayout.setHorizontalGroup(
-            jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFacturarLayout.createSequentialGroup()
-                .addContainerGap(1470, Short.MAX_VALUE)
-                .addComponent(jButton11)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton10)
-                .addGap(25, 25, 25))
-        );
-        jPanelFacturarLayout.setVerticalGroup(
-            jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFacturarLayout.createSequentialGroup()
-                .addContainerGap(758, Short.MAX_VALUE)
-                .addGroup(jPanelFacturarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11))
-                .addContainerGap())
-        );
-
-        jPanelPrincipal.add(jPanelFacturar, "telaFacturar");
-
-        jPanelFornecedor.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelFornecedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jTableForncedor.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 255, 255), null));
-        jTableForncedor.setOpaque(false);
-        jTableForncedor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableForncedorMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableForncedor);
-
-        jButtonPesquisa.setText("Pesquisa");
-        jButtonPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPesquisaActionPerformed(evt);
-            }
-        });
-
-        jButtonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Capturar.PNG"))); // NOI18N
-        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNovoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanelFornecedorLayout = new javax.swing.GroupLayout(jPanelFornecedor);
-        jPanelFornecedor.setLayout(jPanelFornecedorLayout);
-        jPanelFornecedorLayout.setHorizontalGroup(
-            jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFornecedorLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelFornecedorLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(jPanelFornecedorLayout.createSequentialGroup()
-                        .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1475, Short.MAX_VALUE)
-                        .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))))
-        );
-        jPanelFornecedorLayout.setVerticalGroup(
-            jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelFornecedorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelFornecedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonPesquisa))
-                    .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanelPrincipal.add(jPanelFornecedor, "telaFornecedor");
-
-        jPanelInicial.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabelFundo.setBackground(new java.awt.Color(250, 250, 250));
-
-        javax.swing.GroupLayout jPanelInicialLayout = new javax.swing.GroupLayout(jPanelInicial);
-        jPanelInicial.setLayout(jPanelInicialLayout);
-        jPanelInicialLayout.setHorizontalGroup(
-            jPanelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelInicialLayout.createSequentialGroup()
-                .addComponent(jLabelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(754, 754, 754)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 950, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanelInicialLayout.setVerticalGroup(
-            jPanelInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelFundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelInicialLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanelPrincipal.add(jPanelInicial, "telaInicial");
+        jPanelPrincipal.add(jInternalFrame1, "card7");
 
         getContentPane().add(jPanelPrincipal);
         jPanelPrincipal.setBounds(200, 50, 750, 408);
@@ -1083,7 +1088,7 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(966, 456));
+        setSize(new java.awt.Dimension(966, 559));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1521,8 +1526,8 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Procurar;
     private javax.swing.JButton jButtonfornecedor;
     private javax.swing.JComboBox<String> jComboBoxUsuario;
+    private javax.swing.JComboBox<String> jComboBox_Documentos;
     private javax.swing.JComboBox<String> jComboBox_Entidade;
-    private javax.swing.JComboBox<String> jComboBox_Entidade1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -1582,7 +1587,6 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane_Entidade;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner4;
     private javax.swing.JSpinner jSpinner_dataEmissao;
     private javax.swing.JSpinner jSpinner_dataVencimento;
