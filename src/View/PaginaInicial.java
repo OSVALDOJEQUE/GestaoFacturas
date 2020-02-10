@@ -193,6 +193,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
 
         jButton_Novo.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
+        jButton_Novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/novo.png"))); // NOI18N
         jButton_Novo.setText("Novo");
         jButton_Novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,7 +248,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                 .addComponent(jButton_Home)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton_Gravar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_Novo)
@@ -281,6 +282,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         jPanelMenuVendas.setBounds(0, 0, 740, 30);
 
         jPanel6.setLayout(new java.awt.CardLayout());
+
+        jTabbedPane1.setBackground(new java.awt.Color(255, 0, 102));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -321,7 +324,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         );
         jPanel_TabelaVendasLayout.setVerticalGroup(
             jPanel_TabelaVendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
         );
 
         jPanel_Valores.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
@@ -476,7 +479,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jComboBox_Entidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel_Valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel_TabelaVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
