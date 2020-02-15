@@ -61,23 +61,18 @@ public class ListaArtigos extends javax.swing.JFrame {
         });
 
         jButton_Novo3.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Novo3.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\novo.png")); // NOI18N
         jButton_Novo3.setText("Novo");
 
         jButton_Imprimir3.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Imprimir3.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\imprimir.png")); // NOI18N
         jButton_Imprimir3.setText("Imprimir");
 
         jButton_Copiar3.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Copiar3.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\copiar.png")); // NOI18N
         jButton_Copiar3.setText("Copiar");
 
         jButton_Procurar3.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Procurar3.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\procurar.png")); // NOI18N
         jButton_Procurar3.setText("Procurar");
 
         jButton17.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton17.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\cancelar.png")); // NOI18N
         jButton17.setText("Cancelar");
 
         jSeparator3.setForeground(new java.awt.Color(13, 54, 94));
@@ -211,32 +206,16 @@ public class ListaArtigos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton_Copiar1;
-    private javax.swing.JButton jButton_Copiar2;
     private javax.swing.JButton jButton_Copiar3;
-    private javax.swing.JButton jButton_Gravar1;
-    private javax.swing.JButton jButton_Gravar2;
     private javax.swing.JButton jButton_Gravar3;
-    private javax.swing.JButton jButton_Imprimir1;
-    private javax.swing.JButton jButton_Imprimir2;
     private javax.swing.JButton jButton_Imprimir3;
-    private javax.swing.JButton jButton_Novo1;
-    private javax.swing.JButton jButton_Novo2;
     private javax.swing.JButton jButton_Novo3;
-    private javax.swing.JButton jButton_Procurar1;
-    private javax.swing.JButton jButton_Procurar2;
     private javax.swing.JButton jButton_Procurar3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

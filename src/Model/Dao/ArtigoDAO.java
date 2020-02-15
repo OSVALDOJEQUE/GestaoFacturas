@@ -27,7 +27,7 @@ public class ArtigoDAO implements DaoInterface<Artigo,Integer>
 
    
     public Artigo inserir(Artigo a) {
-        String sql="insert into Artigo (Descricao,Quantidade,precoUnit,CodTipoArtigo) value (?,?,?,?)";
+        String sql="insert into Artigo (Descricao,Quantidade,precoUnit,Taxa,CodTipoArtigo,Artigo,Unidade,Marca,Cor,Peso,Moeda) values (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stmt=null;
         
       try {
@@ -35,7 +35,14 @@ public class ArtigoDAO implements DaoInterface<Artigo,Integer>
           stmt.setString(1,a.getDescricao());
           stmt.setInt(2,a.getQuantidade());
           stmt.setBigDecimal(3,a.getPrecoUnit());
-          stmt.setInt(4,a.getCodTipoArtigo());
+          stmt.setString(4,a.getTaxa());
+          stmt.setInt(5,a.getCodTipoArtigo());
+           stmt.setString(6,a.getArtigo());
+          stmt.setString(7,a.getUnidade());
+          stmt.setString(8,a.getMarca());
+          stmt.setString(9,a.getCor());
+          stmt.setFloat(10,a.getPeso());
+          stmt.setString(11,a.getMoeda());
           
           stmt.executeUpdate();
           stmt.close();

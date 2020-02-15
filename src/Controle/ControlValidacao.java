@@ -11,4 +11,14 @@ package Controle;
  */
 public class ControlValidacao {
     
+    
+   public ControlValidacao(){}
+   
+   public boolean artigo()
+   {
+   
+   return true;
+   }
+   
+   
 }

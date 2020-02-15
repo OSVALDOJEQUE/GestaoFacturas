@@ -508,9 +508,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\gravar.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Gravar"/>
                   </Properties>
                   <Events>
@@ -533,9 +530,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\imprimir.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Imprimir"/>
                   </Properties>
                   <Events>
@@ -546,9 +540,6 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\copiar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Copiar"/>
                   </Properties>
@@ -561,9 +552,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\procurar.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Procurar"/>
                   </Properties>
                   <Events>
@@ -574,9 +562,6 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\cancelar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
@@ -1118,9 +1103,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\gravar.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Gravar"/>
                   </Properties>
                   <Events>
@@ -1143,9 +1125,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\imprimir.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Imprimir"/>
                   </Properties>
                   <Events>
@@ -1156,9 +1135,6 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\copiar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Copiar"/>
                   </Properties>
@@ -1171,9 +1147,6 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\procurar.png"/>
-                    </Property>
                     <Property name="text" type="java.lang.String" value="Procurar"/>
                   </Properties>
                   <Events>
@@ -1184,9 +1157,6 @@
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial Nova Light" size="15" style="0"/>
-                    </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\cancelar.png"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
@@ -2141,9 +2111,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Nova Light" size="15" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\home.png"/>
-            </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
         </Component>
@@ -2151,9 +2118,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Nova Light" size="15" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\gravar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Gravar"/>
           </Properties>
@@ -2171,9 +2135,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Nova Light" size="15" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\imprimir.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Imprimir"/>
           </Properties>
         </Component>
@@ -2181,9 +2142,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Nova Light" size="15" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\copiar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Copiar"/>
           </Properties>
@@ -2193,9 +2151,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Nova Light" size="15" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\procurar.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Procurar"/>
           </Properties>
         </Component>
@@ -2203,9 +2158,6 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial Nova Light" size="15" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\User\Desktop\Ivapoint\Icons\cancelar.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
           </Properties>

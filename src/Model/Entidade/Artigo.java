@@ -63,6 +63,13 @@ public class Artigo implements Serializable {
     @JoinColumn(name = "CodTipoArtigo", referencedColumnName = "CodTipoArtigo")
     @ManyToOne(optional = false)
     private int codTipoArtigo;
+    private String  Artigo,unidade, marca, moeda,taxa, cor;
+    private float peso;
+    
+    
+    
+    
+    
 
     public Artigo() {
     }
@@ -107,6 +114,64 @@ public class Artigo implements Serializable {
     public void setPrecoUnit(BigDecimal precoUnit) {
         this.precoUnit = precoUnit;
     }
+
+    public String getArtigo() {
+        return Artigo;
+    }
+
+    public void setArtigo(String Artigo) {
+        this.Artigo = Artigo;
+    }
+
+    public String getUnidade() {
+        return unidade;
+    }
+
+    public void setUnidade(String unidade) {
+        this.unidade = unidade;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getMoeda() {
+        return moeda;
+    }
+
+    public void setMoeda(String moeda) {
+        this.moeda = moeda;
+    }
+
+    public String getTaxa() {
+        return taxa;
+    }
+
+    public void setTaxa(String taxa) {
+        this.taxa = taxa;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+    
+    
 
     @XmlTransient
     public Collection<Venda> getVendaCollection() {

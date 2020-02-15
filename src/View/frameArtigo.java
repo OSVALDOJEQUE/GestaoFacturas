@@ -5,6 +5,18 @@
  */
 package View;
 
+import Controle.ControlTabela;
+import Model.Dao.ArtigoDAO;
+import Model.Dao.BDconexao;
+import Model.Entidade.Artigo;
+import Controle.Tabela;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+
 /**
  *
  * @author LOURENÇO LANGA
@@ -14,9 +26,73 @@ public class frameArtigo extends javax.swing.JFrame {
     /**
      * Creates new form frameArtigo
      */
+    private int point=0;
+    ArtigoDAO artdao=new ArtigoDAO();
+    Artigo artmode=new Artigo();
+    Connection con;
+   // ControlTabela ctrtabela=null;
+         BDconexao conex=new BDconexao();
+
     public frameArtigo() {
         initComponents();
+        
+        preencherComboboxs();
+        String sql="Select Artigo,Descricao, Quantidade, Unidade, PrecoUnit, Marca from artigo";
+       TabelaArtigo(sql);
+        
     }
+     public void TabelaArtigo(String sql){
+    ArrayList dados=new ArrayList();
+    String[] colunas=new String[]{"Artigo","Descricao","Quantidade","Unidade","Preco","Marca"};
+    con=BDconexao.getconnection();
+    conex.executaSql(sql);
+    try{
+    conex.rs.first();
+    do{
+       dados.add(new Object[]{conex.rs.getString("Artigo"),conex.rs.getString("Descricao"),
+       conex.rs.getInt("Quantidade"),conex.rs.getString("Unidade"),conex.rs.getBigDecimal("PrecoUnit"),
+       conex.rs.getString("Marca")});
+      
+    }while(conex.rs.next());
+    }catch(SQLException ex){
+    
+        JOptionPane.showMessageDialog(null,"Erro no preenchimento da tabela Artigo");
+    } 
+    Tabela modelo=new Tabela(dados,colunas);
+             
+  
+
+    jTable_Artigos.setModel(modelo);
+    jTable_Artigos.getColumnModel().getColumn(0);
+    jTable_Artigos.getColumnModel().getColumn(0).setResizable(true);
+     jTable_Artigos.getColumnModel().getColumn(1);
+    jTable_Artigos.getColumnModel().getColumn(1).setResizable(true);
+     jTable_Artigos.getColumnModel().getColumn(2);
+    jTable_Artigos.getColumnModel().getColumn(2).setResizable(true);
+     jTable_Artigos.getColumnModel().getColumn(3);
+    jTable_Artigos.getColumnModel().getColumn(3).setResizable(true);
+     jTable_Artigos.getColumnModel().getColumn(4);
+    jTable_Artigos.getColumnModel().getColumn(4).setResizable(true);
+     jTable_Artigos.getColumnModel().getColumn(5);
+    jTable_Artigos.getColumnModel().getColumn(5).setResizable(true);
+  
+    
+    jTable_Artigos.getTableHeader().setReorderingAllowed(false);
+    jTable_Artigos.setAutoResizeMode(jTable_Artigos.AUTO_RESIZE_OFF);
+    jTable_Artigos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    
+    
+    
+    BDconexao.fecharConexao(con);
+    }
+     
+     public void preencherComboboxs()
+     {
+     
+    jComboBox_Moeda.setModel(new javax.swing.DefaultComboBoxModel(new String[]{ "MZN", "USD"}));
+    jComboBox_TaxaIva.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Insencao","Iva"}));
+    jComboBox_Unidade.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"litro","kg","Kw"}));
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,7 +111,8 @@ public class frameArtigo extends javax.swing.JFrame {
         jButton_Procurar1 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel_Gravar = new javax.swing.JLabel();
+        jButton_Gravar = new javax.swing.JButton();
+        jButton_Editar = new javax.swing.JButton();
         jTabbedPane_Artigo = new javax.swing.JTabbedPane();
         jPanel_Artigo = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -61,7 +138,18 @@ public class frameArtigo extends javax.swing.JFrame {
         jComboBox_Moeda = new javax.swing.JComboBox<>();
         jLabel_TaxaIva = new javax.swing.JLabel();
         jComboBox_TaxaIva = new javax.swing.JComboBox<>();
+        jTextField_Quantidade = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        try {
+            jTable_Artigos =(javax.swing.JTable)java.beans.Beans.instantiate(getClass().getClassLoader(), "View.frameArtigo_jTable_Artigo");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Artigo");
@@ -70,31 +158,28 @@ public class frameArtigo extends javax.swing.JFrame {
         jButton_Novo.setText("Novo");
 
         jButton_Imprimir1.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Imprimir1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\imprimir.png")); // NOI18N
         jButton_Imprimir1.setText("Imprimir");
 
         jButton_Copiar1.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Copiar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\copiar.png")); // NOI18N
         jButton_Copiar1.setText("Copiar");
 
         jButton_Procurar1.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton_Procurar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\procurar.png")); // NOI18N
         jButton_Procurar1.setText("Procurar");
 
         jButton15.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
-        jButton15.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\cancelar.png")); // NOI18N
         jButton15.setText("Cancelar");
 
-        jLabel_Gravar.setBackground(new java.awt.Color(0, 255, 204));
-        jLabel_Gravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Gravar_Icon.png"))); // NOI18N
-        jLabel_Gravar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jLabel_GravarFocusGained(evt);
+        jButton_Gravar.setText("Gravar");
+        jButton_Gravar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_GravarActionPerformed(evt);
             }
         });
-        jLabel_Gravar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel_GravarMouseEntered(evt);
+
+        jButton_Editar.setText("Editar");
+        jButton_Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_EditarActionPerformed(evt);
             }
         });
 
@@ -103,9 +188,9 @@ public class frameArtigo extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel_Gravar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(30, 30, 30)
+                .addComponent(jButton_Gravar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_Novo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton_Imprimir1)
@@ -115,6 +200,8 @@ public class frameArtigo extends javax.swing.JFrame {
                 .addComponent(jButton_Procurar1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton15)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_Editar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -128,8 +215,9 @@ public class frameArtigo extends javax.swing.JFrame {
                         .addComponent(jButton_Copiar1)
                         .addComponent(jButton_Imprimir1)
                         .addComponent(jButton_Procurar1)
-                        .addComponent(jButton15))
-                    .addComponent(jLabel_Gravar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton15)
+                        .addComponent(jButton_Editar))
+                    .addComponent(jButton_Gravar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -281,8 +369,9 @@ public class frameArtigo extends javax.swing.JFrame {
                         .addGroup(jPanel_ValoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_ValoresLayout.createSequentialGroup()
                                 .addComponent(jLabel_Moeda)
-                                .addGap(0, 154, Short.MAX_VALUE))
-                            .addComponent(jComboBox_Moeda, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(0, 174, Short.MAX_VALUE))
+                            .addComponent(jComboBox_Moeda, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField_Quantidade))))
                 .addContainerGap())
         );
         jPanel_ValoresLayout.setVerticalGroup(
@@ -299,8 +388,21 @@ public class frameArtigo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_TaxaIva)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox_TaxaIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel_ValoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox_TaxaIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 213, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel_ArtigoLayout = new javax.swing.GroupLayout(jPanel_Artigo);
@@ -312,6 +414,7 @@ public class frameArtigo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel_Valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel_ArtigoLayout.setVerticalGroup(
             jPanel_ArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,7 +424,8 @@ public class frameArtigo extends javax.swing.JFrame {
                 .addGroup(jPanel_ArtigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel_Valores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel_Caracteristicas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(235, 235, 235))
+                .addGap(60, 60, 60)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jTabbedPane_Artigo.addTab("Geral", jPanel_Artigo);
@@ -330,14 +434,41 @@ public class frameArtigo extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 698, Short.MAX_VALUE)
+            .addGap(0, 718, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGap(0, 236, Short.MAX_VALUE)
         );
 
         jTabbedPane_Artigo.addTab("Stock", jPanel4);
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jTable_Artigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_ArtigosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable_Artigos);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 97, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -345,25 +476,30 @@ public class frameArtigo extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jTabbedPane_Artigo)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane_Artigo)
-                .addGap(20, 20, 20))
+                .addComponent(jTabbedPane_Artigo, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -377,17 +513,71 @@ public class frameArtigo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField_TipoArtigoActionPerformed
 
-    private void jLabel_GravarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel_GravarFocusGained
-        
-    }//GEN-LAST:event_jLabel_GravarFocusGained
-
-    private void jLabel_GravarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_GravarMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel_GravarMouseEntered
-
     private void jComboBox_UnidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_UnidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_UnidadeActionPerformed
+
+    private void jButton_GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_GravarActionPerformed
+  
+            artmode.setDescricao(jTextField_DescricaoArtigo.getText());
+            artmode.setQuantidade(Integer.parseInt(jTextField_Quantidade.getText()));
+            artmode.setPrecoUnit(BigDecimal.valueOf( Double.parseDouble(jTextField_PrecoVenda.getText())));
+            artmode.setTaxa(jTextField_Quantidade.getText());
+            artmode.setCodTipoArtigo(Integer.parseInt(jTextField_TipoArtigo.getText()));
+            artmode.setArtigo((jTextField_Artigo.getText()));
+             artmode.setUnidade(""+(jComboBox_Unidade.getSelectedItem()));
+             artmode.setCor((jTextField_Cor.getText()));
+              artmode.setMarca((jTextField_Marca.getText()));
+             artmode.setPeso(Float.parseFloat(jTextField_Peso.getText()));
+            artmode.setMoeda(""+jComboBox_Moeda.getSelectedItem());
+            
+            artdao.inserir(artmode);
+           
+    }//GEN-LAST:event_jButton_GravarActionPerformed
+
+    private void jButton_EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_EditarActionPerformed
+       
+        artmode.setDescricao(jTextField_DescricaoArtigo.getText());
+            artmode.setQuantidade(Integer.parseInt(jTextField_Quantidade.getText()));
+            artmode.setPrecoUnit(BigDecimal.valueOf( Double.parseDouble(jTextField_PrecoVenda.getText())));
+            artmode.setTaxa(jTextField_Quantidade.getText());
+            artmode.setCodTipoArtigo(Integer.parseInt(jTextField_TipoArtigo.getText()));
+            artmode.setArtigo((jTextField_Artigo.getText()));
+             artmode.setUnidade(""+(jComboBox_Unidade.getSelectedItem()));
+             artmode.setCor((jTextField_Cor.getText()));
+              artmode.setMarca((jTextField_Marca.getText()));
+             artmode.setPeso(Float.parseFloat(jTextField_Peso.getText()));
+            artmode.setMoeda(""+jComboBox_Moeda.getSelectedItem());
+            
+            artdao.update(artmode);
+    }//GEN-LAST:event_jButton_EditarActionPerformed
+
+    private void jTable_ArtigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_ArtigosMouseClicked
+       String nome=""+jTable_Artigos.getValueAt(jTable_Artigos.getSelectedRow(),1);
+        con=BDconexao.getconnection();
+
+        conex.executaSql("Select Descricao, Quantidade,PrecoUnit,precoUnit,Taxa,CodTipoArtigo,Artigo,Unidade,Marca,Cor,Peso,Moeda from artigo where Descricao='"+nome+"'");
+        try {
+            conex.rs.first();
+           
+            jTextField_DescricaoArtigo.setText(conex.rs.getString("Descricao"));
+           jTextField_Quantidade.setText(conex.rs.getString("Quantidade"));
+            jTextField_PrecoVenda.setText(String.valueOf(conex.rs.getDouble("PrecoUnit")));
+            jComboBox_TaxaIva.setSelectedItem(conex.rs.getString("Taxa"));
+            jTextField_TipoArtigo.setText(conex.rs.getString("CodTipoArtigo"));
+             jTextField_Artigo.setText(conex.rs.getString("Artigo"));
+              jComboBox_Unidade.setSelectedItem(conex.rs.getString("Unidade"));
+              jTextField_Marca.setText(conex.rs.getString("Marca"));
+                jTextField_Cor.setText(conex.rs.getString("Cor"));
+              jTextField_Peso.setText(conex.rs.getString("Peso"));
+              jComboBox_Moeda.setSelectedItem(conex.rs.getString("Moeda"));
+                
+                
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"Erro Selecionar Artigo ");
+        }
+        BDconexao.fecharConexao(con);
+    }//GEN-LAST:event_jTable_ArtigosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -427,6 +617,8 @@ public class frameArtigo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton_Copiar1;
+    private javax.swing.JButton jButton_Editar;
+    private javax.swing.JButton jButton_Gravar;
     private javax.swing.JButton jButton_Imprimir1;
     private javax.swing.JButton jButton_Novo;
     private javax.swing.JButton jButton_Procurar1;
@@ -437,7 +629,6 @@ public class frameArtigo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel_Artigo;
     private javax.swing.JLabel jLabel_DescricaoArtigo;
-    private javax.swing.JLabel jLabel_Gravar;
     private javax.swing.JLabel jLabel_Moeda;
     private javax.swing.JLabel jLabel_Peso;
     private javax.swing.JLabel jLabel_PrecoVenda;
@@ -445,20 +636,25 @@ public class frameArtigo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_TipoArtigo;
     private javax.swing.JLabel jLabel_tipoArtigo;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel_Artigo;
     private javax.swing.JPanel jPanel_Caracteristicas;
     private javax.swing.JPanel jPanel_Valores;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane_Artigo;
+    private javax.swing.JTable jTable_Artigos;
     private javax.swing.JTextField jTextField_Artigo;
     private javax.swing.JTextField jTextField_Cor;
     private javax.swing.JTextField jTextField_DescricaoArtigo;
     private javax.swing.JTextField jTextField_Marca;
     private javax.swing.JTextField jTextField_Peso;
     private javax.swing.JTextField jTextField_PrecoVenda;
+    private javax.swing.JTextField jTextField_Quantidade;
     private javax.swing.JTextField jTextField_TipoArtigo;
     // End of variables declaration//GEN-END:variables
 }

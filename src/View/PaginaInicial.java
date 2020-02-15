@@ -1887,6 +1887,7 @@ public class PaginaInicial extends javax.swing.JFrame {
     
     BDconexao.fecharConexao(con);
     }
+    
      public void PreencherTabelaProduto(String sql){
     ArrayList dados=new ArrayList();
     String[] colunas=new String[]{"ID","Descr","CodFornecedor","Fornecedor","PrecUnit","Tipo"};
