@@ -47,27 +47,26 @@ public class PaginaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jTextField_Usuario = new javax.swing.JTextField();
+        jPasswordField_Password = new javax.swing.JPasswordField();
         jLabelStatus = new javax.swing.JLabel();
-        fundologin = new javax.swing.JLabel();
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Login");
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Bookman Old Style", 0, 15)); // NOI18N
-        jButton1.setText("Login");
+        jPanel1.setLayout(null);
+
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
+        jButton1.setText("LOGIN");
+        jButton1.setToolTipText("Click to log in.");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setRequestFocusEnabled(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton1MouseEntered(evt);
@@ -81,47 +80,65 @@ public class PaginaLogin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(110, 200, 200, 40);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(110, 100, 200, 30);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(110, 150, 200, 30);
+        jPanel1.add(jButton1);
+        jButton1.setBounds(140, 200, 250, 30);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Sign in");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 70, 60, 30);
+        jTextField_Usuario.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
+        jTextField_Usuario.setText("Usuario"); // NOI18N
+        jTextField_Usuario.setMargin(new java.awt.Insets(2, 5, 2, 2));
+        jTextField_Usuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField_UsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField_UsuarioFocusLost(evt);
+            }
+        });
+        jTextField_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_UsuarioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField_Usuario);
+        jTextField_Usuario.setBounds(140, 120, 250, 30);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Username");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(43, 104, 61, 20);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Password");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(44, 160, 60, 17);
+        jPasswordField_Password.setFont(new java.awt.Font("Arial Nova Light", 0, 15)); // NOI18N
+        jPasswordField_Password.setText("Paasword");
+        jPasswordField_Password.setMargin(new java.awt.Insets(2, 5, 2, 2));
+        jPasswordField_Password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPasswordField_PasswordFocusGained(evt);
+            }
+        });
+        jPasswordField_Password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField_PasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jPasswordField_Password);
+        jPasswordField_Password.setBounds(140, 160, 250, 30);
 
         jLabelStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelStatus.setForeground(java.awt.Color.red);
-        getContentPane().add(jLabelStatus);
-        jLabelStatus.setBounds(90, 250, 250, 20);
+        jPanel1.add(jLabelStatus);
+        jLabelStatus.setBounds(140, 250, 250, 20);
 
-        fundologin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo2.jpg"))); // NOI18N
-        fundologin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(fundologin);
-        fundologin.setBounds(0, 0, 420, 300);
+        jLabel1.setBackground(new java.awt.Color(204, 220, 235));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\Icons\\FundoLogin2.png")); // NOI18N
+        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, -220, 680, 600);
 
-        setSize(new java.awt.Dimension(425, 322));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 680, 320);
+
+        setSize(new java.awt.Dimension(542, 347));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(cUsuario.avalia(jTextField2, jPasswordField1, jLabelStatus)){
+        if(cUsuario.avalia(jTextField_Usuario, jPasswordField_Password, jLabelStatus)){
             usuario=cUsuario.getUsuario();
             PaginaInicial p=new PaginaInicial();
             p.setVisible(true);
@@ -131,12 +148,41 @@ public class PaginaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        jButton1.setBackground(new Color(102,102, 102));
+        jButton1.setBackground(new Color(13,54, 94));
+        jButton1.setForeground(Color.WHITE);
     }//GEN-LAST:event_jButton1MouseEntered
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setBackground(new Color(255,255, 255));
+        jButton1.setBackground(new Color(153,153,153));
+        jButton1.setForeground(Color.BLACK);
     }//GEN-LAST:event_jButton1MouseExited
+
+    private void jTextField_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_UsuarioActionPerformed
+
+    
+    private void jPasswordField_PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField_PasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField_PasswordActionPerformed
+
+    private void jTextField_UsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_UsuarioFocusGained
+       // if("Usuario".equals(jTextField_Usuario.getText().trim().toLowerCase())){
+            jTextField_Usuario.setText("");
+       // }
+       // jTextField_Usuario.setForeground(Color.BLUE);
+    }//GEN-LAST:event_jTextField_UsuarioFocusGained
+
+    private void jTextField_UsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField_UsuarioFocusLost
+          if(jTextField_Usuario.getText().trim().toLowerCase().equals("") || jTextField_Usuario.getText().trim().toLowerCase().equals("Usuario")){
+            jTextField_Usuario.setText("Usuario");
+        }
+         jTextField_Usuario.setForeground(Color.BLUE);
+    }//GEN-LAST:event_jTextField_UsuarioFocusLost
+
+    private void jPasswordField_PasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPasswordField_PasswordFocusGained
+        jPasswordField_Password.setText("");
+    }//GEN-LAST:event_jPasswordField_PasswordFocusGained
 
     /**
      * @param args the command line arguments
@@ -173,20 +219,15 @@ public class PaginaLogin extends javax.swing.JFrame {
         });
     }
 
-    public static Usuario getUsuario() {
-        return usuario;
-    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel fundologin;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelStatus;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField_Password;
+    private javax.swing.JTextField jTextField_Usuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -162,18 +162,18 @@ public class ClienteDAO  implements DaoInterface<Cliente,Integer>{
     }
     
     public Cliente BuscaClientes(Cliente cli){
-       conex.executaSql("Select *from Fornecedor where nome like'%"+cli.getPesquisa()+"%'");
+       conex.executaSql("Select *from Cliente where Nome like'%"+cli.getPesquisa()+"%'");
         try {
             conex.rs.first();
-            cli.setCodCliente(conex.rs.getInt("codFornecedor"));
+            cli.setCodCliente(conex.rs.getInt("codCliente"));
             cli.setNome(conex.rs.getString("Nome"));
-            cli.setNuit(Integer.parseInt(conex.rs.getString("CaixaPostal")));
-            cli.setNrEdificio(Integer.parseInt(conex.rs.getString("NrEdifico")));
+            cli.setNuit(Integer.parseInt(conex.rs.getString("Nuit")));
+            cli.setNrEdificio(Integer.parseInt(conex.rs.getString("NrEdificio")));
             cli.setCaixaPostal(Integer.parseInt(conex.rs.getString("CaixaPostal")));
             cli.setCodPostal(Integer.parseInt(conex.rs.getString("CodPostal")));
             cli.setCodEndereco(Integer.parseInt(conex.rs.getString("CodEndereco")));
         } catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null,"Fornecedor Não cadastrado");
+               JOptionPane.showMessageDialog(null,"Cliente Não cadastrado");
         }
      
        return cli;

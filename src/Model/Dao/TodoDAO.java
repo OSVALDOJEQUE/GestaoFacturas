@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 public class TodoDAO {
     
     Connection con;
-    
+     BDconexao conex=new BDconexao();
     public TodoDAO(){
    
     }
@@ -174,6 +174,8 @@ public class TodoDAO {
     public List listarPorID(Integer i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
     //DAO Endereco
          public Endereco inserirE(Endereco en) {
       String sql="insert into endereco (Distrito, Cidade, Avenida, Rua) values (?,?,?,?)";
@@ -195,17 +197,17 @@ public class TodoDAO {
     }
     
     
-    public void updateE(Contactof en) {
+    public void updateE(Endereco en) {
     
     String sql="Update Endereco set email=? TelFixo=? telCelulat=? CodCliente=? where cod=?";
       PreparedStatement stmt=null;
       try{
       stmt=con.prepareStatement(sql);
-      stmt.setString(1,en.getEmail());
-      stmt.setInt(2,en.getTelFixo());
-      stmt.setInt(3, en.getTelCelular());
-      stmt.setInt(4, en.getCodFornecedor());
-      stmt.setInt(5, en.getCodContacto());
+      stmt.setString(1,en.getDistrito());
+      stmt.setString(2,en.getCidade());
+      stmt.setString(3, en.getAvenida());
+      stmt.setString(4, en.getRua());
+      stmt.setInt(5, en.getCodEndereco());
       
       stmt.executeUpdate();
       stmt.close();
@@ -244,6 +246,23 @@ public class TodoDAO {
   
     public List listarPorIDE(Integer i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+      public Endereco BuscaEndereco(Endereco end){
+       conex.executaSql("Select *from Endereco where codEndereco like'%"+end.getPesquisa()+"%'");
+        try {
+           
+            conex.rs.first();
+            end.setCodEndereco(conex.rs.getInt("codEndereco"));
+            end.setDistrito(conex.rs.getString("Distrito"));
+             end.setCidade(conex.rs.getString("Cidade"));
+              end.setAvenida(conex.rs.getString("Avenida"));
+               end.setRua(conex.rs.getString("Rua"));
+        } catch (SQLException ex) {
+               JOptionPane.showMessageDialog(null,"Endereco Encontrado");
+        }
+     
+       return end;
     }
 
     //DAO classe

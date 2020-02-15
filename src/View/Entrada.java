@@ -27,7 +27,9 @@ new Thread(){
       public void run() {
        
         for (int i = jProgressBar1.getMinimum(); i <= jProgressBar1.getMaximum(); i++) {
-           jProgressBar1.setValue(i);
+           
+            
+            jProgressBar1.setValue(i);
            if(i==10){
                dispose();
               pl.setVisible(true);
@@ -57,7 +59,6 @@ new Thread(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();
 
@@ -65,23 +66,19 @@ new Thread(){
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("SISTEMA DE GESTÃO DE VENDAS E COMPRAS");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(130, 150, 324, 17);
-
-        jProgressBar1.setForeground(new java.awt.Color(153, 255, 255));
+        jProgressBar1.setBackground(new java.awt.Color(51, 51, 51));
+        jProgressBar1.setForeground(new java.awt.Color(51, 51, 51));
         jProgressBar1.setMaximum(10);
-        jProgressBar1.setStringPainted(true);
+        jProgressBar1.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        jProgressBar1.setString("");
         getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(0, 297, 600, 17);
+        jProgressBar1.setBounds(0, 232, 530, 6);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Desktop\\Ivapoint\\entry png3-8.png")); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 1, 600, 320);
+        jLabel2.setBounds(0, -30, 520, 320);
 
-        setSize(new java.awt.Dimension(600, 321));
+        setSize(new java.awt.Dimension(518, 258));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -121,7 +118,6 @@ new Thread(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JProgressBar jProgressBar1;
     // End of variables declaration//GEN-END:variables
